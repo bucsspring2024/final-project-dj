@@ -2,18 +2,18 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
+# << Boss Fight >>
 ## CS110 Final Project  << Semester, Year >>
 
 ## Team Members
 
-<< List team member names >>
+<< Jayden Feliz, Damian Chang >>
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+<< Maybe a boss fight >>
 
 ***    
 
@@ -31,11 +31,11 @@
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. << Start Menu (Difficulty Menu) >>
+2. << Power up item >>
+3. << Winning Animation and losing>>
+4. << Shaking Background>>
+5. << End Menu (Win/Lose)>>
 
 ### Classes
 
