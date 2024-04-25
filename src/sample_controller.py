@@ -16,10 +16,9 @@ class Controller:
         
     def jump(self):
         self.jump = True
+        
     def crouch(self):
         self.crouch = True
-    
-  
     
     def mainloop(self):
         current_loop = self.menuloop
@@ -27,7 +26,22 @@ class Controller:
             current_loop = current_loop()
 
 
-  def menuloop(self): 
+    def menuloop(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                    pygame.quit()
+                    return None
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        self.handle_button_click(event.pos)
+
+            self.screen.fill(self.bg_color)
+            self.draw_buttons()
+            pygame.display.flip()
+            self.clock.tick(60)
 
     class MainMenu:
       def menuloop(self, screen):
@@ -91,7 +105,7 @@ if __name__ == "__main__":
     screen = pygame.display.set_mode((800, 600))
     pygame.display.set_caption('Main Menu')
 
-    menu = MainMenu(screen)
+    menu = screen(screen)
     menu.run()
 
       
