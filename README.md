@@ -31,7 +31,7 @@
 
 ### Features
 
-1. << Start Menu (Difficulty Menu) >>
+1. << Start Menu >>
 2. << Power up item >>
 3. << Winning Animation and losing>>
 4. << Shaking Background>>

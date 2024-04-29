@@ -2,8 +2,6 @@ import pygame
 
 pygame.init()
 
-pygame.init()
-
 screenwid = (854)
 screenlen = (480)
 
@@ -39,7 +37,7 @@ textRect2.center = (screenwid// 2, screenlen//1.8)
 
 mainmenu.blit(start, textRect)
 
-mainmenu.blit(quit, textRect2 )
+mainmenu.blit(quit, textRect2)
 
 pygame.display.update()
 
@@ -47,12 +45,8 @@ pygame.time.wait(10000)
 
 def menu():
     while True:
-        screen.fill("black")
 
         MENU_POS = pygame.mouse.get_pos() #gets position of mouse
-
-        TEXT = get_font(100).render("START MENU", True, "#b68f40")
-        Rect = TEXT.get_rect = (640, 100)
 
         Start_Game = 
 
@@ -67,7 +61,6 @@ def menu():
                 if End_Game.checkForInput(MENU_POS):
                     pygame.quit()
         pygame.display.update()
-        pass
 
 def game():
     while True:

@@ -8,6 +8,8 @@ class Controller:
 
   def menuloop(self):
     
+
+
       #event loop
 
       #update data
@@ -21,7 +23,7 @@ class Controller:
 
       #redraw
     
-  dSef gameoverloop(self):
+  def gameoverloop(self):
       #event loop
 
       #update data

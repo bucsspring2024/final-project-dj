@@ -45,6 +45,8 @@ pygame.display.update()
 pygame.time.wait(10000)
 
 for event in pygame.event.get():
+
+
  
         # if event object type is QUIT
         # then quitting the pygame
@@ -59,38 +61,3 @@ for event in pygame.event.get():
  
         # Draws the surface object to the screen.
         pygame.display.update()
-
-
-
-# def menu():
-#     while True:
-#         fscreen.fill("black")
-
-#         MENU_POS = pygame.mouse.get_pos() #gets position of mouse
-
-#         TEXT = get_font(100).render("START MENU", True, "#b68f40")
-#         Rect = TEXT.get_rect = (640, 100)
-
-#         Start_Game = 
-
-#         End_Game = 
-
-#         for event in pygame.event.get():
-#             if event.type == pygame.QUIT:
-#                 pygame.quit()
-#             if event.type == pygame.MOUSEBUTTONDOWN:
-#                 if Start_Game.checkForInput(MENU_POS):
-#                     play()
-#                 if End_Game.checkForInput(MENU_POS):
-#                     pygame.quit()
-#         pygame.display.update()
-# menu()
-
-# def game():
-#     while True:
-#         fscreen.fill()
-
-        
-
-    
-
