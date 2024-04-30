@@ -16,8 +16,10 @@ pygame.display.set_caption("Start Menu")
 mainmenu = pygame.display.set_mode(screen)
 
 BG = pygame.image.load('assets/blur.png')
+GBG = pygame.image.load('assets/small.castle.png')
 
 MainBG = pygame.transform.scale_by(BG, 0.22)
+GameBG = pygame.transform.scale_by(BG, 0.22)
 
 mainmenu.blit(MainBG, (0,0))
 
@@ -47,10 +49,13 @@ def menu():
     while True:
 
         MENU_POS = pygame.mouse.get_pos() #gets position of mouse
+        mainmenu.blit(GameBG, (0,0))
 
-        Start_Game = 
+        Start_Game = Button()
 
-        End_Game = 
+        End_Game = Button()
+
+        for button in [Start_Game, ]
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
