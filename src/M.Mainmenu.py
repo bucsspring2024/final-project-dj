@@ -55,7 +55,7 @@ def menu():
 
         End_Game = Button()
 
-        for button in [Start_Game, ]
+        for button in [Start_Game,]
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
