@@ -3,4 +3,3 @@ class Enemy:
         self.faceleft = faceleft
         self.faceright = faceright
         self.damage = damage
-        # enemy
