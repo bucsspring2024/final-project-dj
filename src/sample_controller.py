@@ -21,7 +21,7 @@ class Controller:
         self.crouch = True
 
 class MainMenu:
-    """class for handling the main menu interface and interactions."""
+    """class to handle the main menu interface and interactions."""
     def __init__(self, screen):
         self.screen = screen
         self.screen_width = self.screen.get_width()
