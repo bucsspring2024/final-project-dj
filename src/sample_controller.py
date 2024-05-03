@@ -70,10 +70,10 @@ class MainMenu:
                 button['action']()
 
     def start_game(self):
-        print("Game started!")
+        print("started game")
 
     def open_options(self):
-        print("Options menu!")
+        print("options menu")
 
         self.main_menu = self.screen
 
