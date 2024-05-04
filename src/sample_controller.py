@@ -62,7 +62,7 @@ class MainMenu:
             computer = random.choice(options)
 
             while player not in options:
-                print(f"Player: {}")
+                print(f"Player: {player}")
                 print(f"Computer: {computer}")
 
                 if player == computer:
@@ -157,48 +157,42 @@ class MainMenu:
             if button['rect'].collidepoint(mouse_pos):
                 button['action']()
 
-    def start_game(self):
-<<<<<<< HEAD
-=======
+def start_game(self):
 
-        self.main_menu = self.screen
+    self.main_menu = self.screen
+    self.bg_color = (50, 50, 50)
+    self.button_color = (225, 0, 0)
+    self.button_hover_color = (150, 150, 200)
+    self.text_color = (255, 255, 255)
+    self.font = pygame.font.Font(None, 36)
 
-        self.bg_color = (50, 50, 50)
-        self.button_color = (225, 0, 0)
-        self.button_hover_color = (150, 150, 200)
-        self.text_color = (255, 255, 255)
-
-        self.font = pygame.font.Font(None, 36)
-        self.buttons = [
-            {"label": "quit", "rect": pygame.Rect(self.screen_width / 2 - 5, 400, 200, 50)}]
-        running = True
-        while running:
-
-            self.buttons = [
-            {"label": "Scissors", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50), "action": self.attack},
-            {"label": "Paper", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.attack},
-            {"label": "Rock", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},]
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
+    self.buttons = [
+        {"label": "Scissors", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50), "action": self.attack},
+        {"label": "Paper", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.attack},
+        {"label": "Rock", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},
+    ]
+    
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                if self.handle_button_click(event.pos):
                     return
-                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                    if self.handle_button_click(event.pos):
-                        return
 
-            self.screen.fill(self.bg_color)
-            self.screen.blit(self.PlayScaleBG, (0,0))
-            pygame.display.update()
-            self.draw_buttons()
-            pygame.display.flip()
-            
-            self.screen.blit(self.enemyS, (500, 30))
-            self.screen.blit(self.characterS, (50, 160))
-            pygame.display.flip()
-            self.clock.tick(60)
+        self.screen.fill(self.bg_color)
+        self.screen.blit(self.PlayScaleBG, (0,0))
+        self.draw_buttons()
+        pygame.display.flip()
 
->>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
-        print("Game started!")
+        self.screen.blit(self.enemyS, (500, 30))
+        self.screen.blit(self.characterS, (50, 160))
+        pygame.display.flip()
+        self.clock.tick(60)
+
+    print("Game started!")
 
     def open_options(self):
         print("options menu")
@@ -225,22 +219,18 @@ class MainMenu:
                         return
 
             self.screen.fill(self.bg_color)
-<<<<<<< HEAD
-=======
+            
             self.screen.blit(self.scaleBG, (0,0))
             pygame.display.flip()
->>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
+
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
-    def playerchoice(self):
-        
-        
 
-if __name__ == "__main__":
-    pygame.init()
-    screen = pygame.display.set_mode((854, 480))
-    pygame.display.set_caption('Game')
+        if __name__ == "__main__":
+            pygame.init()
+            screen = pygame.display.set_mode((854, 480))
+            pygame.display.set_caption('Game')
 
-    menu = MainMenu(screen)
-    menu.run()
+        menu = MainMenu(screen)
+        menu.run()
