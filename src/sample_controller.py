@@ -62,7 +62,7 @@ class MainMenu:
             computer = random.choice(options)
 
             while player not in options:
-                print(f"Player: {}")
+                print(f"Player: {player}")
                 print(f"Computer: {computer}")
 
                 if player == computer:
@@ -227,14 +227,11 @@ class MainMenu:
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
-    def playerchoice(self):
-        
-        
 
 if __name__ == "__main__":
     pygame.init()
     screen = pygame.display.set_mode((854, 480))
     pygame.display.set_caption('Game')
 
-    menu = MainMenu(screen)
-    menu.run()
+menu = MainMenu(screen)
+menu.run()
