@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Controller:
     """class to control player actions like left, right, jump, and crouch."""
@@ -53,33 +54,77 @@ class MainMenu:
             {"label": "Quit", "rect": pygame.Rect(self.screen_width / 2 - 100, 300, 200, 50), "action": self.open_options},
         ]
     def attack(self):
+        options = ("Rock", "Paper", "Scissors")
         running = True 
+
+        while running:
+            player = None
+            computer = random.choice(options)
+
+            while player not in options:
+                print(f"Player: {}")
+                print(f"Computer: {computer}")
+
+                if player == computer:
+                    self.start_game
+                elif player == "rock" and computer == "scissors":
+                    self.winscreen
+                elif player == "paper" and computer == "rock":
+                    self.winscreen
+                elif player == "scissors" and computer == "paper":
+                    self.winscreen
+                else:
+                    self.losescreen
+    def winscreen(self):
+        running = True
         while running:
             self.buttons = [
-            {"label": "You Win", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
+                {"label": "You Win", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    return
-                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                    if self.handle_button_click(event.pos):
-                        return   
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+                    elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        if self.handle_button_click(event.pos):
+                            return   
             pygame.display.flip()
             self.screen.fill(self.bg_color)
             self.screen.blit(self.PlayScaleBG, (0,0))
             pygame.display.update()
             self.draw_buttons() 
             pygame.display.flip()
-            
+                
             self.screen.blit(self.enemyS, (500, 30))
             self.screen.blit(self.characterS, (50, 160))
             pygame.display.flip()
             self.screen.blit(self.fireEF, (0,0))
             pygame.display.update()
             self.clock.tick(60)
-    def defend(self):
-
-        pass
+    def losescreen(self):
+        running = True
+        while running:
+            self.buttons = [
+                {"label": "You Lose", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
+            for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+                    elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        if self.handle_button_click(event.pos):
+                            return   
+            pygame.display.flip()
+            self.screen.fill(self.bg_color)
+            self.screen.blit(self.PlayScaleBG, (0,0))
+            pygame.display.update()
+            self.draw_buttons() 
+            pygame.display.flip()
+                
+            self.screen.blit(self.enemyS, (500, 30))
+            self.screen.blit(self.characterS, (50, 160))
+            pygame.display.flip()
+            self.screen.blit(self.fireEF, (0,0))
+            pygame.display.update()
+            self.clock.tick(60)
 
     def run(self):
         running = True
@@ -128,9 +173,9 @@ class MainMenu:
         while running:
 
             self.buttons = [
-            {"label": "Run Away", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50)},
-            {"label": "Quick Attack", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.open_options},
-            {"label": "Tackle", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},]
+            {"label": "Scissors", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50), "action": self.attack},
+            {"label": "Paper", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.attack},
+            {"label": "Rock", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},]
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -182,6 +227,9 @@ class MainMenu:
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
+    def playerchoice(self):
+        
+        
 
 if __name__ == "__main__":
     pygame.init()
