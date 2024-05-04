@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Controller:
     """class to control player actions like left, right, jump, and crouch."""
@@ -40,6 +41,11 @@ class MainMenu:
         self.character = pygame.image.load('assets/char.png')
         self.characterS = pygame.transform.scale_by(self.character, 1.8)
         self.enemyS = pygame.transform.scale_by(self.enemy, 1)
+        self.hyperEF = pygame.image.load('assets/hyperEF.png')
+        self.hyperS= pygame.transform.scale_by(self.hyperEF, 0.2)
+        self.fireEF = pygame.image.load('assets/fireEF.png')
+        self.fireS = pygame.transform.scale_by(self.fireEF, 0.2)
+
         
         
         self.font = pygame.font.Font(None, 36)
@@ -47,10 +53,79 @@ class MainMenu:
             {"label": "Start Game", "rect": pygame.Rect(self.screen_width / 2 - 100, 225, 200, 50), "action": self.start_game},
             {"label": "Quit", "rect": pygame.Rect(self.screen_width / 2 - 100, 300, 200, 50), "action": self.open_options},
         ]
-    def attacks(self):
-        attack = True
-        pass
-    
+    def attack(self):
+        options = ("Rock", "Paper", "Scissors")
+        running = True 
+
+        while running:
+            player = None
+            computer = random.choice(options)
+
+            while player not in options:
+                print(f"Player: {}")
+                print(f"Computer: {computer}")
+
+                if player == computer:
+                    self.start_game
+                elif player == "rock" and computer == "scissors":
+                    self.winscreen
+                elif player == "paper" and computer == "rock":
+                    self.winscreen
+                elif player == "scissors" and computer == "paper":
+                    self.winscreen
+                else:
+                    self.losescreen
+    def winscreen(self):
+        running = True
+        while running:
+            self.buttons = [
+                {"label": "You Win", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
+            for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+                    elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        if self.handle_button_click(event.pos):
+                            return   
+            pygame.display.flip()
+            self.screen.fill(self.bg_color)
+            self.screen.blit(self.PlayScaleBG, (0,0))
+            pygame.display.update()
+            self.draw_buttons() 
+            pygame.display.flip()
+                
+            self.screen.blit(self.enemyS, (500, 30))
+            self.screen.blit(self.characterS, (50, 160))
+            pygame.display.flip()
+            self.screen.blit(self.fireEF, (0,0))
+            pygame.display.update()
+            self.clock.tick(60)
+    def losescreen(self):
+        running = True
+        while running:
+            self.buttons = [
+                {"label": "You Lose", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
+            for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+                    elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        if self.handle_button_click(event.pos):
+                            return   
+            pygame.display.flip()
+            self.screen.fill(self.bg_color)
+            self.screen.blit(self.PlayScaleBG, (0,0))
+            pygame.display.update()
+            self.draw_buttons() 
+            pygame.display.flip()
+                
+            self.screen.blit(self.enemyS, (500, 30))
+            self.screen.blit(self.characterS, (50, 160))
+            pygame.display.flip()
+            self.screen.blit(self.fireEF, (0,0))
+            pygame.display.update()
+            self.clock.tick(60)
+
     def run(self):
         running = True
         while running:
@@ -83,6 +158,46 @@ class MainMenu:
                 button['action']()
 
     def start_game(self):
+<<<<<<< HEAD
+=======
+
+        self.main_menu = self.screen
+
+        self.bg_color = (50, 50, 50)
+        self.button_color = (225, 0, 0)
+        self.button_hover_color = (150, 150, 200)
+        self.text_color = (255, 255, 255)
+
+        self.font = pygame.font.Font(None, 36)
+        self.buttons = [
+            {"label": "quit", "rect": pygame.Rect(self.screen_width / 2 - 5, 400, 200, 50)}]
+        running = True
+        while running:
+
+            self.buttons = [
+            {"label": "Scissors", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50), "action": self.attack},
+            {"label": "Paper", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.attack},
+            {"label": "Rock", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},]
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    return
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if self.handle_button_click(event.pos):
+                        return
+
+            self.screen.fill(self.bg_color)
+            self.screen.blit(self.PlayScaleBG, (0,0))
+            pygame.display.update()
+            self.draw_buttons()
+            pygame.display.flip()
+            
+            self.screen.blit(self.enemyS, (500, 30))
+            self.screen.blit(self.characterS, (50, 160))
+            pygame.display.flip()
+            self.clock.tick(60)
+
+>>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
         print("Game started!")
 
     def open_options(self):
@@ -110,9 +225,17 @@ class MainMenu:
                         return
 
             self.screen.fill(self.bg_color)
+<<<<<<< HEAD
+=======
+            self.screen.blit(self.scaleBG, (0,0))
+            pygame.display.flip()
+>>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
+    def playerchoice(self):
+        
+        
 
 if __name__ == "__main__":
     pygame.init()
