@@ -143,10 +143,10 @@ class MainMenu:
             self.clock.tick(60)
 
     def draw_buttons(self):
-        mouse_position = pygame.mouse.get_pos()
+        mouse_pos = pygame.mouse.get_pos()
         for button in self.buttons:
             rect = button['rect']
-            color = self.button_hover_color if rect.collidepoint(mouse_position) else self.button_color
+            color = self.button_hover_color if rect.collidepoint(mouse_pos) else self.button_color
             pygame.draw.rect(self.screen, color, rect)
             text_surf = self.font.render(button['label'], True, self.text_color)
             text_rect = text_surf.get_rect(center=rect.center)
@@ -158,8 +158,6 @@ class MainMenu:
                 button['action']()
 
     def start_game(self):
-<<<<<<< HEAD
-=======
 
         self.main_menu = self.screen
 
@@ -197,15 +195,14 @@ class MainMenu:
             pygame.display.flip()
             self.clock.tick(60)
 
->>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
         print("Game started!")
 
     def open_options(self):
-        print("options menu")
+        print("Options menu!")
 
         self.main_menu = self.screen
 
-        self.background_color = (50, 50, 50)
+        self.bg_color = (50, 50, 50)
         self.button_color = (100, 100, 150)
         self.button_hover_color = (150, 150, 200)
         self.text_color = (255, 255, 255)
@@ -225,11 +222,8 @@ class MainMenu:
                         return
 
             self.screen.fill(self.bg_color)
-<<<<<<< HEAD
-=======
             self.screen.blit(self.scaleBG, (0,0))
             pygame.display.flip()
->>>>>>> 0bea363621cebbf067aabcaf9c940356b4db4935
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
@@ -239,5 +233,5 @@ if __name__ == "__main__":
     screen = pygame.display.set_mode((854, 480))
     pygame.display.set_caption('Game')
 
-menu = MainMenu(screen)
+    menu = MainMenu(screen)
 menu.run()
