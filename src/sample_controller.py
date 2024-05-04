@@ -40,6 +40,11 @@ class MainMenu:
         self.character = pygame.image.load('assets/char.png')
         self.characterS = pygame.transform.scale_by(self.character, 1.8)
         self.enemyS = pygame.transform.scale_by(self.enemy, 1)
+        self.hyperEF = pygame.image.load('assets/hyperEF.png')
+        self.hyperS= pygame.transform.scale_by(self.hyperEF, 0.2)
+        self.fireEF = pygame.image.load('assets/fireEF.png')
+        self.fireS = pygame.transform.scale_by(self.fireEF, 0.2)
+
         
         
         self.font = pygame.font.Font(None, 36)
@@ -47,10 +52,35 @@ class MainMenu:
             {"label": "Start Game", "rect": pygame.Rect(self.screen_width / 2 - 100, 225, 200, 50), "action": self.start_game},
             {"label": "Quit", "rect": pygame.Rect(self.screen_width / 2 - 100, 300, 200, 50), "action": self.open_options},
         ]
-    def attacks(self):
-        attack = True
+    def attack(self):
+        running = True 
+        while running:
+            self.buttons = [
+            {"label": "You Win", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": pygame.quit},]
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    return
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if self.handle_button_click(event.pos):
+                        return   
+            pygame.display.flip()
+            self.screen.fill(self.bg_color)
+            self.screen.blit(self.PlayScaleBG, (0,0))
+            pygame.display.update()
+            self.draw_buttons() 
+            pygame.display.flip()
+            
+            self.screen.blit(self.enemyS, (500, 30))
+            self.screen.blit(self.characterS, (50, 160))
+            pygame.display.flip()
+            self.screen.blit(self.fireEF, (0,0))
+            pygame.display.update()
+            self.clock.tick(60)
+    def defend(self):
+
         pass
-    
+
     def run(self):
         running = True
         while running:
@@ -99,8 +129,8 @@ class MainMenu:
 
             self.buttons = [
             {"label": "Run Away", "rect": pygame.Rect(self.screen_width / 2 - 2, 400, 200, 50)},
-            {"label": "Quick Attack", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.start_game},
-            {"label": "Tackle", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.open_options},]
+            {"label": "Quick Attack", "rect": pygame.Rect(self.screen_width / 2 - 2, 350, 200, 50), "action": self.open_options},
+            {"label": "Tackle", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 200, 50), "action": self.attack},]
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -148,7 +178,7 @@ class MainMenu:
 
             self.screen.fill(self.bg_color)
             self.screen.blit(self.scaleBG, (0,0))
-            pygame.display.update()
+            pygame.display.flip()
             self.draw_buttons()
             pygame.display.flip()
             self.clock.tick(60)
