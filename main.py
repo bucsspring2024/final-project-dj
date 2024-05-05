@@ -1,9 +1,10 @@
 import pygame
-import src.sample_controller
+from src.sample_controller import MainMenu
 #import your controller
-
 def main():
-    pygame.init()
+    menu = MainMenu()
+    menu.run()
+
     #Create an instance on your controller object
     #Call your mainloop
     

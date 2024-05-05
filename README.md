@@ -75,12 +75,13 @@ Test Case 4: Display of Win/Lose Screens
 
 | Step                 |Procedure             |Expected Results                   |
 |----------------------|:--------------------:|----------------------------------:|
-|  1                   | Win Round | Display a "You Win" Screen |
-|  2                   | Lose Round   | Display a "You Lose" Screen |
+|  1                   | Run Counter Program  |GUI window appears with count = 0  |
+|  2                   | click count button   | display changes to count = 1      |
+etc...
 
 Test Case 5: Enemy and Player Character Scaling
 
 | Step                 |Procedure             |Expected Results                   |
 |----------------------|:--------------------:|----------------------------------:|
 |  1                   | Start the Game | Game starts |
-|  2                   | Verify that the player and enemy characters are displayed on the screen with the correct sizes, positiosn, and proportions. | The player and enemy character imagse are scaled according to the specified dimensions and appear correctly on the screen. |
+|  2                   | Verify that the player and enemy characters are displayed on the screen with the correct sizes, positions, and proportions. | The player and enemy character imagse are scaled according to the specified dimensions and appear correctly on the screen. |
