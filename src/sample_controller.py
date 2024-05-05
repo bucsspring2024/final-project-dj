@@ -1,7 +1,7 @@
 import pygame
 import random
 import sys
-from score import score
+from src.score import score
 
 class MainMenu:
     """class to handle the main menu interface and interactions."""
@@ -212,5 +212,5 @@ class MainMenu:
 
 if __name__ == "__main__":
     pygame.init()
-    menu = MainMenu()
-    menu.run()
+menu = MainMenu()
+menu.run()
