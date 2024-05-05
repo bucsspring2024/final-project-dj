@@ -232,5 +232,8 @@ def start_game(self):
             screen = pygame.display.set_mode((854, 480))
             pygame.display.set_caption('Game')
 
-    menu = MainMenu(screen)
-    menu.run()
+        menu = MainMenu(screen)
+        menu.run()
+        
+menu = MainMenu(screen)
+menu.run()
