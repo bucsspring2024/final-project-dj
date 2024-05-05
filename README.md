@@ -60,8 +60,8 @@ Test Case 2: Button Interaction in Main Menu
 | Step                 |Procedure             |Expected Results                   |
 |----------------------|:--------------------:|----------------------------------:|
 |  1                   | Hover the mouse pointer over each button  | Buttons highlight upon mouse hover |
-|  2                   | Click on the "Start Game" button. | Clicking on the "Start Game" button transitions to the game screen |
-|  3                   | Click on the "Quit" button. | Clicking on the "Quit" button closes the game application without issues |
+|  2                   | Click on the "Start Game" button | Clicking on the "Start Game" button transitions to the game screen |
+|  3                   | Click on the "Quit" button | Clicking on the "Quit" button closes the game application without issues |
 
 Test Case 3: Attack Mechanism in Game
 
