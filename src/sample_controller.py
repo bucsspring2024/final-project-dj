@@ -6,6 +6,7 @@ from src.score import score
 class MainMenu:
     """class to handle the main menu interface and interactions."""
     def __init__(self):
+        """initialize the main"""
         pygame.init()
         self.score = score()
         self.screen = pygame.display.set_mode((854, 480))
@@ -39,6 +40,7 @@ class MainMenu:
             {"label": "Quit", "rect": pygame.Rect(self.screen_width / 2 - 100, 300, 200, 50), "action": self.quit},
         ]
     def attack(self, kwargs={}):
+        """handle player attack choice"""
         options = ("rock", "paper", "scissors")
 
         player = kwargs["label"].lower()
@@ -58,6 +60,7 @@ class MainMenu:
         
 
     def winscreen(self):
+        """handle win screen"""
         running = True
         self.score.win()
         print(self.score.data)
@@ -84,6 +87,7 @@ class MainMenu:
             pygame.display.update()
             self.clock.tick(60)
     def losescreen(self, kwargs={}):
+        """handle losing screen"""
         self.score.loss()
         print(self.score.data)
         running = True
@@ -109,6 +113,7 @@ class MainMenu:
             pygame.display.update()
             self.clock.tick(60)
     def tiescreen(self, kwargs={}):
+        """handle tie screen"""
         self.score.tie()
         print(self.score.data)
         running = True
@@ -135,6 +140,7 @@ class MainMenu:
     
 
     def run(self):
+        """run the main menu"""
         running = True
         while running:
             for event in pygame.event.get():
@@ -151,6 +157,7 @@ class MainMenu:
             self.clock.tick(60)
 
     def draw_buttons(self):
+        """draw buttons on the screen"""
         mouse_pos = pygame.mouse.get_pos()
         for button in self.buttons:
             rect = button['rect']
@@ -161,6 +168,7 @@ class MainMenu:
             self.screen.blit(text_surf, text_rect)
 
     def handle_button_click(self, mouse_pos):
+        """handle button click events"""
         for button in self.buttons:
             if button['rect'].collidepoint(mouse_pos):
                 button['action']({"label": button["label"]})
@@ -207,7 +215,4 @@ class MainMenu:
 if __name__ == "__main__":
     pygame.init()
     menu = MainMenu()
-
-    menu.run()
-
-
+menu.run()
