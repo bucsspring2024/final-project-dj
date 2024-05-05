@@ -28,10 +28,10 @@ class MainMenu:
         self.enemyS = pygame.transform.scale_by(self.enemy, 1)
         self.hyperEF = pygame.image.load('assets/hyperEF.png')
         self.hyperS= pygame.transform.scale_by(self.hyperEF, 0.2)
-        self.hyperR= pygame.transform.scale_by(self.hyperEF, 270)
+        self.hyperR= pygame.transform.scale_by(self.hyperEF, 2.3)
         self.fireEF = pygame.image.load('assets/fireEF.png')
         self.fireS = pygame.transform.scale_by(self.fireEF, 0.2)
-        self.fireR = pygame.transform.rotate(self.fireS, )
+        self.fireR = pygame.transform.rotate(self.fireS, 2.3)
 
         self.font = pygame.font.Font(None, 36)
         self.buttons = [
