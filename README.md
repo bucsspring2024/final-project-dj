@@ -32,14 +32,14 @@
 ### Features
 
 1. << Start Menu >>
-2. << Power up item >>
-3. << Winning Animation and losing>>
-4. << Shaking Background>>
+2. << attack menu >>
+3. << Winning Animation and losing animation>>
+4. << 2 characters>>
 5. << End Menu (Win/Lose)>>
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+- << Main Menu and Score  >>
 
 ## ATP
 
