@@ -1,7 +1,7 @@
 import pygame
 import random
 import sys
-from score import score
+from src.score import score
 
 class MainMenu:
     """class to handle the main menu interface and interactions."""
@@ -27,11 +27,11 @@ class MainMenu:
         self.characterS = pygame.transform.scale_by(self.character, 1.8)
         self.enemyS = pygame.transform.scale_by(self.enemy, 1)
         self.hyperEF = pygame.image.load('assets/hyperEF.png')
-        self.hyperS= pygame.transform.scale_by(self.hyperEF, 0.2)
-        self.hyperR= pygame.transform.scale_by(self.hyperEF, 2.3)
+        self.hyperS= pygame.transform.scale_by(self.hyperEF, 0.5)
+        self.hyperR= pygame.transform.rotate(self.hyperS, 50)
         self.fireEF = pygame.image.load('assets/fireEF.png')
-        self.fireS = pygame.transform.scale_by(self.fireEF, 0.2)
-        self.fireR = pygame.transform.rotate(self.fireS, 2.3)
+        self.fireS = pygame.transform.scale_by(self.fireEF, 0.5)
+        self.fireR = pygame.transform.rotate(self.fireS, -140)
 
         self.font = pygame.font.Font(None, 36)
         self.buttons = [
@@ -80,7 +80,7 @@ class MainMenu:
             self.screen.blit(self.enemyS, (500, 30))
             self.screen.blit(self.characterS, (50, 160))
          
-            self.screen.blit(self.fireR, (0,0))
+            self.screen.blit(self.fireR, (300,40))
             pygame.display.update()
             self.clock.tick(60)
     def losescreen(self, kwargs={}):
@@ -89,7 +89,7 @@ class MainMenu:
         running = True
         while running:
             self.buttons = [
-                {"label": f"You Lose {self.score.data}", "rect": pygame.Rect(self.screen_width / 2 - 2, 300, 400, 50), "action": self.quit},]
+                {"label": f"You Lose {self.score.data}", "rect": pygame.Rect(self.screen_width / 2 - 2, 0, 350, 50), "action": self.quit},]
             for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         self.quit()
@@ -105,7 +105,7 @@ class MainMenu:
           
             self.screen.blit(self.enemyS, (500, 30))
             self.screen.blit(self.characterS, (50, 160))
-            self.screen.blit(self.hyperR, (0,0))
+            self.screen.blit(self.hyperR, (250,50))
             pygame.display.update()
             self.clock.tick(60)
     def tiescreen(self, kwargs={}):
