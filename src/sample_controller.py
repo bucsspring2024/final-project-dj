@@ -40,7 +40,10 @@ class MainMenu:
             {"label": "Quit", "rect": pygame.Rect(self.screen_width / 2 - 100, 300, 200, 50), "action": self.quit},
         ]
     def attack(self, kwargs={}):
-        """handle player attack choice"""
+        """Function Description: Handle player attack choice
+        Arg: Has a dictionary that contains 'label' which is the player's choice of 'rock', 'paper', or 'scissors'
+        Return: None
+        """
         options = ("rock", "paper", "scissors")
 
         player = kwargs["label"].lower()
@@ -60,7 +63,10 @@ class MainMenu:
         
 
     def winscreen(self):
-        """handle win screen"""
+        """Function Description: handle win screen
+        Arg: None
+        Returns: None
+        """
         running = True
         self.score.win()
         print(self.score.data)
@@ -87,7 +93,10 @@ class MainMenu:
             pygame.display.update()
             self.clock.tick(60)
     def losescreen(self, kwargs={}):
-        """handle losing screen"""
+        """handle losing screen
+        Args: None
+        Returns: None
+        """
         self.score.loss()
         print(self.score.data)
         running = True
@@ -113,7 +122,9 @@ class MainMenu:
             pygame.display.update()
             self.clock.tick(60)
     def tiescreen(self, kwargs={}):
-        """handle tie screen"""
+        """Function Description: handle tie screen
+        Args: None
+        Returns: None"""
         self.score.tie()
         print(self.score.data)
         running = True
@@ -140,7 +151,9 @@ class MainMenu:
     
 
     def run(self):
-        """run the main menu"""
+        """Function Description: runs the main menu loop
+        Args: None
+        Returns: None"""
         running = True
         while running:
             for event in pygame.event.get():
@@ -157,7 +170,9 @@ class MainMenu:
             self.clock.tick(60)
 
     def draw_buttons(self):
-        """draw buttons on the screen"""
+        """Function Description: draw buttons on the screen
+        Args: None
+        Returns: None"""
         mouse_pos = pygame.mouse.get_pos()
         for button in self.buttons:
             rect = button['rect']
@@ -168,12 +183,17 @@ class MainMenu:
             self.screen.blit(text_surf, text_rect)
 
     def handle_button_click(self, mouse_pos):
-        """handle button click events"""
+        """Function Description: handle button click events to see if a click occurred over a button
+        Args: mouse_pos (tuple)
+        Returns: None"""
         for button in self.buttons:
             if button['rect'].collidepoint(mouse_pos):
                 button['action']({"label": button["label"]})
 
     def start_game(self, kwargs={}):
+        """Function Description: initiates and runs the gameplay phase of the game
+        Args: kwargs
+        Returns: None"""
         self.main_menu = self.screen
         self.bg_color = (50, 50, 50)
         self.button_color = (225, 0, 0)
@@ -207,6 +227,9 @@ class MainMenu:
             self.clock.tick(60)
 
     def quit(self, kwargs={}):
+        """Function Description: ends the game and saves the current score
+        Args: kwargs
+        Returns: None"""
         self.score.setscores()
         pygame.quit()
         sys.exit()
