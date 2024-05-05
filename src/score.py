@@ -19,8 +19,3 @@ class score:
         self.data["loss"] +=1
     def tie(self):
         self.data["tie"] +=1
-
-
-
-
-

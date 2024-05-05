@@ -4,7 +4,7 @@ import sys
 from src.score import score
 
 class MainMenu:
-    """hi hi hiclass to handle the main menu interface and interactions."""
+    """class to handle the main menu interface and interactions."""
     def __init__(self):
         """initialize the main"""
         pygame.init()
